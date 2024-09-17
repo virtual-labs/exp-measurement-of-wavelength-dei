@@ -22,6 +22,7 @@ Condition for a minimum:<br />
 4. k ... order of the minimum (1, 2, 3, ...)<br />
 5. λ ... wavelength<br />
 <div align="center">
+
 ![image3](images/image3.png)<br />
 Fig. 1
 </div>
