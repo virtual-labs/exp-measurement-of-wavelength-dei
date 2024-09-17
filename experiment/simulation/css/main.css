@@ -1,1 +1,125 @@
+/*====================================*/
+/* Stylesheet für Seite mit HTML5-App */
+/* 18.01.2021 - 16.08.2023            */
+/*====================================*/
+
+/* Das Stylesheet für normale Seiten (page.css) wird nachgeladen. */
+
+@import url(page.css);
+
+/* Schaltknopf */
+  
+button {
+  height: 30px;       
+  border-radius: 0px;
+  border-style: outset;
+  border-width: 2px;
+  margin-left: 10px;
+  font: bold 12px sans-serif;
+  } 
+
+/* Gesamte App */
+   
+div#total {
+  position: relative;
+  margin: 20px auto 20px;
+  }
+  
+/* Zeichenfläche */
+
+div#canvas {
+  position: absolute;
+  background-color: #ffff00;
+  border: 1px solid #000000;
+  }
+  
+/* Schaltfläche */
+  
+div#panel, div#panel1, div#panel2 {
+  position: absolute;
+  background-color: #aeaeae;
+  border: 1px solid #000000;
+  font: bold 12px sans-serif;
+  }
+  
+/* Zeile einer Schaltfläche */
+  
+div#panel div , div#panel1 div, div#panel2 div {
+  position: absolute;
+  }
+  
+/* Optionsfeld */
+
+input[type="checkbox"] {
+  margin-left: 10px;
+  border-radius: 0px; 
+  }
+  
+/* Radiobutton */
+
+input[type="radio"] {
+  margin-left: 10px;  
+  }
+  
+/* Schieberegler */
+
+input[type="range"] {
+  position: absolute;
+  left: 10px;
+  }
+  
+/* Eingabefeld */
+
+input[type="text"] {
+  position: absolute;
+  padding-left: 2px;
+  height: 14px;
+  border-radius: 0px;
+  border-color: #000000;
+  border-width: 1px;
+  font: bold 12px sans-serif;
+  } 
+  
+/* Text für Optionsfeld oder Radiobutton */
+  
+label {
+  margin-left: 5px;
+  vertical-align: 2px;  
+  }
+  
+/* Auswahlfeld */
+
+select {
+  position: absolute;
+  top: -3px;
+  left: 10px;
+  height: 20px;
+  border-radius: 0px;
+  font: bold 12px sans-serif;
+  background-color: #ffffff;
+  } 
+  
+/* Inline-Element (span) innerhalb einer Schaltfläche */
+  
+div#panel span, div#panel1 span, div#panel2 span {
+  position: absolute;
+  white-space: nowrap;
+  font: bold 12px sans-serif;
+  }
+  
+/* Textbereich */
+
+textarea {
+  position: absolute;
+  padding: 3px;
+  left: 10px;
+  border-radius: 0px;
+  font: bold 12px sans-serif;
+  line-height: 1.25;
+  }
+  
+
+
+/* Add the following styles at the end of your existing CSS */
+
 /* You CSS goes in here */
