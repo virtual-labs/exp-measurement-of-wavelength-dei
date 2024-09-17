@@ -2,37 +2,33 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "In a Fraunhofer diffraction experiment, what does the order (k) in the formulas refer to?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The number of diffracting objects used",
+        "b": "The color of the light source",
+        "c": "The specific type of material used for the aperture",
+        "d": "The location of a particular bright or dark fringe relative to the central maximum"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+
+        "d": "Explanation 2 <a href='https://en.wikipedia.org/wiki/Fraunhofer_diffraction'>here</a>"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "A single slit diffracts white light. Which of the following colors will deviate the most from the straight-through direction?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Red (Correct - Longer wavelengths diffract more)",
+        "b": "Green",
+        "c": "Blue",
+        "d": "All colors will diffract the same amount"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Explanation 1  <a href='https://www.doubtnut.com/qna/31678260'>here</a>"
+
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]

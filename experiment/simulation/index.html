@@ -1,13 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<!DOCTYPE HTML>
+
+<html lang="en">
+
+<head>
+<title>Diffraction of light by a single slit</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./css/main.css">
+<style>
+div#total { width: 740px; height: 440px; }
+div#canvas { width: 440px; height: 440px; }
+div#panel { left: 440px; width: 300px; height: 440px; }
+input[type="text"] { left: 150px; width: 80px; }
+input[type="range"] { width: 280px; }
+select { left: 150px; width: 140px; }
+.pos1 { left: 10px; }
+.pos2 { left: 150px; }
+.pos3 { left: 255px; }
+span.Max { margin: 15px auto 15px auto; display: block; width: 350px; }
+span.Min { margin: 15px auto 15px auto; display: block; width: 180px; }
+p.Abstand { margin-top: 20px; }
+</style>
+<script src="./js/main.js"></script>
+<meta name="description" content="HTML5 app: Diffraction of light by a single slit">
+<meta name="author" content="Walter Fendt">
+<meta name="keywords" content="app, physics, optics, interference, diffraction, single slit">
+</head>
+
+<body>
+
+<h1 style="align-items: center;">Diffraction of Light by a Single Slit</h1>
+
+<div id="total">
+  <div id="canvas"><canvas id="cv" width=440 height=440>This browser doesn't support HTML5 canvas!</canvas></div>
+  <div id="panel">
+    <div style="top: 20px;"><span class="pos1" id="ip1a"></span><input type="text" id="ip1b"><span class="pos3" id="ip1c"></span></div>
+    <div style="top: 50px;"><input type="range" min=0 max=40  value="100" oninput="rangeValue.innerText = this.value" id="sl1"></div>
+    <div style="top: 90px;"><span class="pos1" id="ip2a"></span><input type="text" id="ip2b"><span class="pos3" id="ip2c"></span></div>
+    <div style="top: 120px;"><input type="range" min=0 max=45 id="sl2"></div>
+    <div style="top: 160px;"><span class="pos1" id="ip3a"></span><input type="text" id="ip3b"><span class="pos3" id="ip3c"></span></div>
+    <div style="top: 190px;"><input type="range" min=0 max=90 id="sl3"></div>
+    <div style="top: 230px;"><span class="pos1" id="ch1a"></span><select id="ch1b"></select></div>
+    <div style="top: 270px;"><span class="pos1" id="ch2a"></span><select id="ch2b"></select></div>
+    <div style="top: 310px;"><span class="pos1" id="op1a"></span><span class="pos2" id="op1b"></span></div>
+    <div style="top: 340px;"><input type="radio" id="rb1" name="bg" value=""><label for="rb1" id="lb1"></label></div>
+    <div style="top: 370px;"><input type="radio" id="rb2" name="bg" value=""><label for="rb2" id="lb2"></label></div>
+    <div style="top: 410px;"><span class="pos1" id="author"></span></div>
+  </div>
+</div>
+
+
 </body>
 </html>

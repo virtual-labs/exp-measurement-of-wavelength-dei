@@ -2,34 +2,34 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which of the following best describes Fraunhofer diffraction?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Light scattering from a rough surface",
+        "b": "Bending of light as it travels past a sharp edge.",
+        "c": "Absorption of specific wavelengths of light by a material",
+        "d": "Change in the colour of light as it passes through a prism"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
+        "a": "Explanation 1",
+        "b": "Explanation 2 <a href='https://en.wikipedia.org/wiki/Fraunhofer_diffraction'>here</a>",
         "c": "Explanation 2",
         "d": "Explanation 2"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "In Fraunhofer diffraction, what is the key characteristic of the light source and observation screen?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "They are located very close to the diffracting object",
+        "b": "The light source is a point source, and the screen is placed at the focal point of a lens",
+        "c": "The light source is distant, and the screen is placed far away from the diffracting object.",
+        "d": "The light source is monochromatic, and the screen is highly reflective."
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
+        "a": "Explanation 1 ",
         "b": "Explanation 2",
-        "c": "Explanation 2",
+        "c": "Explanation 2  <a href='chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://egyankosh.ac.in/bitstream/123456789/81006/3/Unit-10.pdf'>here</a>",
         "d": "Explanation 2"
       },
       "correctAnswer": "c",
