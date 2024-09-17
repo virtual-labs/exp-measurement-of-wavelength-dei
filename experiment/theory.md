@@ -21,14 +21,7 @@ Condition for a minimum:<br />
 3. α ... angle<br />
 4. k ... order of the minimum (1, 2, 3, ...)<br />
 5. λ ... wavelength<br />
-<div align="center">
-
 ![image3](images/image3.png)<br />
-Fig. 1
-</div>
-
-<div align="center">
-
+Fig. 1<br />
 ![image4](images/image4.jpg)<br />
 Fig.2 
-</div>
