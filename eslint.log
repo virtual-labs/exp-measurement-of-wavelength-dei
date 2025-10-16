@@ -1,0 +1,35 @@
+
+/home/runner/work/exp-measurement-of-wavelength-dei/exp-measurement-of-wavelength-dei/experiment/simulation/js/main.js
+   18:5   warning  'colorIntensityMax' is assigned a value but never used  no-unused-vars
+   19:5   warning  'colorIntensityMid' is assigned a value but never used  no-unused-vars
+   20:5   warning  'colorIntensityLow' is assigned a value but never used  no-unused-vars
+  682:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  687:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  688:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  689:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  690:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  691:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  702:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  711:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  713:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  720:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  721:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  722:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  723:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  724:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  725:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  726:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  727:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  731:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  738:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  794:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  795:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  796:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  797:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  798:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  799:2   warning  Mixed spaces and tabs                                   no-mixed-spaces-and-tabs
+  889:16  warning  'filename' is defined but never used                    no-unused-vars
+  957:10  warning  'endPage' is defined but never used                     no-unused-vars
+
+✖ 30 problems (0 errors, 30 warnings)
+
