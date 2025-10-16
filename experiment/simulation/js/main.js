@@ -1,28 +1,32 @@
-// Beugung von Licht am Einfachspalt
-// Java-Applet (11.10.2003) umgewandelt
-// 29.11.2015 - 17.08.2023
+// Fraunhofer Diffraction: Single-Slit and Circular Aperture
+// Original Java-Applet (11.10.2003) converted to JavaScript
+// Updated UI: 2023
 
 // ****************************************************************************
-// * Autor: Walter Fendt (www.walter-fendt.de)                                *
-// * Dieses Programm darf - auch in veränderter Form - für nicht-kommerzielle *
-// * Zwecke verwendet und weitergegeben werden, solange dieser Hinweis nicht  *
-// * entfernt wird.                                                           *
+// * Author: Walter Fendt (www.walter-fendt.de)                               *
+// * This program may be used and distributed for non-commercial purposes,     *
+// * as long as this notice is not removed.                                    *
 // **************************************************************************** 
 
-// Sprachabhängige Texte sind in einer eigenen Datei (zum Beispiel singleslit_de.js) abgespeichert.
+// Language-dependent texts are stored in a separate file (e.g., singleslit_de.js).
 
-// Farben:
+// Colors:
 
-var colorBackground1 = "#404040";                          // Hintergrundfarbe Versuchsaufbau
-var colorBackground2 = "#000000";                          // Hintergrundfarbe Versuchsergebnis
-var colorSingleSlit = "#808080";                           // Farbe für Einfachspalt
+var colorBackground1 = "#1f2937";                          // Background color for experiment setup (gray-800)
+var colorBackground2 = "#111827";                          // Background color for experiment result (gray-900)
+var colorSingleSlit = "#4b5563";                           // Color for single slit (gray-600)
+var colorIntensityMax = "#0ea5e9";                         // Color for maximum intensity (cyan-500)
+var colorIntensityMid = "#a855f7";                         // Color for medium intensity (purple-500)
+var colorIntensityLow = "#6366f1";                         // Color for low intensity (indigo-500)
 
-// Sonstige Konstanten:
+// Other Constants:
 
-var DEG = Math.PI/180;                                     // 1 Grad (Bogenmaß)
-var MAX = 90;                                              // Maximaler Winkel (Gradmaß)
-var RAD = 200;                                             // Radius Beobachtungsschirm
-var FONT = "normal normal bold 12px sans-serif";           // Zeichensatz
+var DEG = Math.PI/180;                                     // 1 degree (radians)
+var MAX = 90;                                              // Maximum angle (degrees)
+var RAD = 200;                                             // Radius of observation screen
+var FONT = "normal normal bold 14px 'Inter', sans-serif";  // Font
+var zoomLevel = 1.0;                                       // Zoom level (1.0 = normal)
+var apertureType = "single-slit";                          // Aperture type (single-slit or circular)
 
 // Attribute:
 
@@ -56,46 +60,74 @@ function getElement (id, text) {
 // Start:
 
 function start () {
-  canvas = getElement("cv");                               // Zeichenfläche
-  width = canvas.width; height = canvas.height;            // Abmessungen (Pixel)
-  ctx = canvas.getContext("2d");                           // Grafikkontext
-  getElement("ip1a",text01);                               // Erklärender Text (Wellenlänge)
-  ip1 = getElement("ip1b");                                // Eingabefeld (Wellenlänge)
-  getElement("ip1c",nanometer);                            // Einheit (Wellenlänge)
-  sl1 = getElement("sl1");                                 // Schieberegler (Wellenlänge)
-  getElement("ip2a",text02); 
-  getElement('mySlider');
-  getElement('sliderValue');                             // Erklärender Text (Spaltbreite)
-  ip2 = getElement("ip2b");                                // Eingabefeld (Spaltbreite)
-  getElement("ip2c",nanometer);                            // Einheit (Spaltbreite)
-  sl2 = getElement("sl2");                                 // Schieberegler (Spaltbreite)
-  getElement("ip3a",text03);                               // Erklärender Text (Winkel)
-  ip3 = getElement("ip3b");                                // Eingabefeld (Winkel)
-  getElement("ip3c",degree);                               // Einheit (Winkel)
-  sl3 = getElement("sl3");                                 // Schieberegler (Winkel)
-  getElement("ch1a",text04);                               // Erklärender Text (Maxima)
-  ch1 = getElement("ch1b");                                // Auswahlfeld (Maxima)  
-  getElement("ch2a",text05);                               // Erklärender Text (Minima)
-  ch2 = getElement("ch2b");                                // Auswahlfeld (Minima)
-  getElement("op1a",text06);                               // Erklärender Text (relative Intensität)
-  op = getElement("op1b");                                 // Ausgabefeld (relative Intensität)  
-  rb1 = getElement("rb1");                                 // Radiobutton (Beugungsmuster)
-  getElement("lb1",text07);                                // Erklärender Text (Beugungsmuster)
-  rb2 = getElement("rb2");                                 // Radiobutton (Intensitätsverteilung)
-  getElement("lb2",text08);                                // Erklärender Text (Intensitätsverteilung)
-  rb1.checked = true;                                      // Zunächst Beugungsmuster ausgewählt
-                        // Autor (und Übersetzer)
+  canvas = getElement("cv");                               // Drawing area
+  width = canvas.width; height = canvas.height;            // Dimensions (pixels)
+  ctx = canvas.getContext("2d");                           // Graphics context
+  getElement("ip1a",text01);                               // Explanatory text (wavelength)
+  ip1 = getElement("ip1b");                                // Input field (wavelength)
+  getElement("ip1c",nanometer);                            // Unit (wavelength)
+  sl1 = getElement("sl1");                                 // Slider (wavelength)
+  getElement("ip2a",text02);                               // Explanatory text (slit width)
+  ip2 = getElement("ip2b");                                // Input field (slit width)
+  getElement("ip2c",nanometer);                            // Unit (slit width)
+  sl2 = getElement("sl2");                                 // Slider (slit width)
+  getElement("ip3a",text03);                               // Explanatory text (angle)
+  ip3 = getElement("ip3b");                                // Input field (angle)
+  getElement("ip3c",degree);                               // Unit (angle)
+  sl3 = getElement("sl3");                                 // Slider (angle)
+  getElement("ch1a",text04);                               // Explanatory text (maxima)
+  ch1 = getElement("ch1b");                                // Selection field (maxima)  
+  getElement("ch2a",text05);                               // Explanatory text (minima)
+  ch2 = getElement("ch2b");                                // Selection field (minima)
+  getElement("op1a",text06);                               // Explanatory text (relative intensity)
+  op = getElement("op1b");                                 // Output field (relative intensity)  
+  rb1 = getElement("rb1");                                 // Radio button (diffraction pattern)
+  getElement("lb1",text07);                                // Explanatory text (diffraction pattern)
+  rb2 = getElement("rb2");                                 // Radio button (intensity distribution)
+  getElement("lb2",text08);                                // Explanatory text (intensity distribution)
+  rb1.checked = true;                                      // Initially diffraction pattern selected
+  getElement("author",author);                             // Author (and translator)
   
-  uM = 210; vM = 200;                                      // Ursprung (Pixel)
-  lambda = 600*1e-9;                                       // Startwert Wellenlänge (m)
-  b = 1000*1e-9;                                           // Startwert Spaltbreite (m)
-  alpha = 0;                                               // Startwert Winkel (Bogenmaß)
-  theta = 200*DEG; phi = 40*DEG;                           // Azimut- und Höhenwinkel (Bogenmaß)
-  calcCoeff();                                             // Koeffizienten für Projektion berechnen
-  setPolygons();                                           // Arrays für Polygonecken vorbereiten      
-  updateInput(true,true,true);                             // Eingabefelder aktualisieren
-  reaction(true);                                          // Berechnungen, Ausgabe, Zeichnen
-  focus(ip1);                                              // Fokus für erstes Eingabefeld
+  // Initialize aperture type dropdown
+  const apertureDropdown = getElement("aperture-type");
+  if (apertureDropdown) {
+    apertureDropdown.onchange = function() {
+      apertureType = this.value;
+      reaction(true);
+    };
+  }
+  
+  // Initialize zoom buttons
+  const zoomInBtn = getElement("zoom-in");
+  const zoomOutBtn = getElement("zoom-out");
+  if (zoomInBtn) {
+    zoomInBtn.onclick = function() {
+      zoomLevel = Math.min(zoomLevel + 0.2, 2.0); // Max zoom: 2x
+      canvas.classList.add('zoom-in');
+      setTimeout(() => canvas.classList.remove('zoom-in'), 300);
+      reaction(true);
+    };
+  }
+  if (zoomOutBtn) {
+    zoomOutBtn.onclick = function() {
+      zoomLevel = Math.max(zoomLevel - 0.2, 0.5); // Min zoom: 0.5x
+      canvas.classList.add('zoom-out');
+      setTimeout(() => canvas.classList.remove('zoom-out'), 300);
+      reaction(true);
+    };
+  }
+  
+  uM = width/2; vM = height/2;                            // Origin (pixels) - centered
+  lambda = 600*1e-9;                                       // Initial value wavelength (m)
+  b = 1000*1e-9;                                           // Initial value slit width (m)
+  alpha = 0;                                               // Initial value angle (radians)
+  theta = 200*DEG; phi = 40*DEG;                           // Azimuth and elevation angle (radians)
+  calcCoeff();                                             // Calculate coefficients for projection
+  setPolygons();                                           // Prepare arrays for polygon corners      
+  updateInput(true,true,true);                             // Update input fields
+  updateWavelengthColor();                                 // Initialize wavelength color
+  reaction(true);                                          // Calculations, output, drawing
+  focus(ip1);                                              // Focus for first input field
   
   ip1.onkeydown = reactionEnter;                           // Reaktion auf Enter-Taste (Eingabe Wellenlänge)
   ip2.onkeydown = reactionEnter;                           // Reaktion auf Enter-Taste (Eingabe Spaltbreite)
@@ -156,14 +188,45 @@ function focus (ip) {
   ip.setSelectionRange(n,n);                               // Cursor setzen
   }
   
-// Reaktion auf Schieberegler für Wellenlänge:
-// Seiteneffekt lambda, b, alpha
+// Reaction to slider for wavelength:
+// Side effect lambda, b, alpha
 
 function reactionSlider1 () {
-  lambda = (38+Number(sl1.value))*1e-8;                    // Wellenlänge (m)
-  updateInput(true,false,false);                           // Eingabefeld aktualisieren
-  reaction(true);                                          // Daten übernehmen, rechnen, Ausgabe, neu zeichnen
+  lambda = (38+Number(sl1.value))*1e-8;                    // Wavelength (m)
+  updateInput(true,false,false);                           // Update input field
+  updateWavelengthColor();                                 // Update wavelength color
+  reaction(true);                                          // Process data, calculate, output, redraw
   }
+  
+// Update the wavelength slider thumb color based on current wavelength
+function updateWavelengthColor() {
+  const wavelengthNm = lambda * 1e9;
+  let color;
+  
+  // Set color based on wavelength range
+  if (wavelengthNm < 450) {
+    color = '#6a11cb'; // Violet/Blue
+  } else if (wavelengthNm < 500) {
+    color = '#2575fc'; // Cyan/Greenish Blue
+  } else if (wavelengthNm < 570) {
+    color = '#38ef7d'; // Green
+  } else if (wavelengthNm < 590) {
+    color = '#fffb00'; // Yellow
+  } else if (wavelengthNm < 620) {
+    color = '#ff9900'; // Orange
+  } else {
+    color = '#ff0000'; // Red
+  }
+  
+  // Apply color to slider thumb
+  sl1.style.color = color;
+  
+  // Update wavelength display with color
+  if (ip1) {
+    ip1.style.color = color;
+    ip1.style.textShadow = `0 0 5px ${color}40`;
+  }
+}
   
 // Reaktion auf Schieberegler für Spaltbreite:
 // Seiteneffekt lambda, b, alpha
@@ -292,22 +355,37 @@ function updateMaxMin () {
   ch2.selectedIndex = 0;                                   // Minimum 1. Ordnung auswählen
   }
   
-// Aktualisierung des Ausgabefelds:
+// Update output field:
 
 function updateOutput () {
-  op.innerHTML = ToString(intensity(alpha),4,true);        // Relative Intensität
+  var i = 0;
+  if (apertureType === "circular") {
+    // For circular aperture, use Airy pattern formula
+    var x = 2*Math.PI*b*Math.sin(alpha)/lambda;  // x = ka*sin(θ) where k=2π/λ and a=b/2 (aperture radius)
+    if (x === 0) {
+      i = 1;  // At center, intensity is maximum
+    } else {
+      // Approximation of [2*J₁(x)/x]² using first few terms
+      var j1 = 0.5 - Math.pow(x,2)/16 + Math.pow(x,4)/384 - Math.pow(x,6)/18432;
+      i = Math.pow(2*j1/x, 2);
+    }
+  } else {
+    // Default single-slit pattern: [sin(u)/u]²
+    i = intensity(alpha);
+  }
+  op.innerHTML = ToString(i,4,true);        // Relative intensity
   }
   
-// Eingabe, Berechnungen, Ausgabe, neu zeichnen:
-// mm ... Flag für Aktualisierung der Auswahlfelder für Maxima/Minima
-// Seiteneffekt lambda, b, alpha  
+// Input, calculations, output, redraw:
+// mm ... Flag for updating selection fields for maxima/minima
+// Side effect lambda, b, alpha  
    
 function reaction (mm) {
-  input();                                                 // Eingabe
-  if (mm) updateMaxMin();                                  // Gegebenenfalls Auswahlfelder für Maxima/Minima aktualisieren
-  updateOutput();                                          // Ausgabe aktualisieren
-  updateSlit();                                            // Polygonecken für Spalt aktualisieren
-  paint();                                                 // Neu zeichnen
+  input();                                                 // Input
+  if (mm) updateMaxMin();                                  // Update selection fields for maxima/minima if needed
+  updateOutput();                                          // Update output
+  updateSlit();                                            // Update polygon corners for slit
+  paint();                                                 // Redraw
   }  
   
 //-------------------------------------------------------------------------------------------------
@@ -726,22 +804,68 @@ function distributionIntensity () {
   circle(uM-du,v0,2.5,"#ff0000");                          // Markierung für aktuellen Winkel (links)
   }
     
-// Grafikausgabe:
-  
+// Graphics output:  
+
 function paint () {
-  ctx.fillStyle = colorBackground1;                        // Hintergrundfarbe Versuchsaufbau
-  ctx.fillRect(0,0,width,300);                             // Hintergrund ausfüllen
-  screenLeft();                                            // Linker Teil des Beobachtungsschirms
-  raysMaxima();                                            // Strahlen für die Maxima
-  screenRight();                                           // Rechter Teil des Beobachtungsschirms
-  singleSlit();                                            // Einfachspalt
-  rayBefore();                                             // Lichtstrahl vor dem Doppelspalt   
-  ctx.fillStyle = colorBackground2;                        // Hintergrundfarbe Versuchsergebnis
-  ctx.fillRect(0,300,width,height-300);                    // Hintergrund ausfüllen
-  ctx.font = FONT;                                         // Zeichensatz
-  if (rb1.checked) patternDiffraction();                   // Beugungsmuster
-  else distributionIntensity();                            // Intensitätsverteilung 
+  // Clear canvas
+  ctx.fillStyle = colorBackground1;                        // Background color for experiment setup
+  ctx.fillRect(0,0,width,300);                             // Fill background
+  
+  // Apply zoom transformation
+  ctx.save();                                              // Save current state
+  ctx.translate(uM, vM);                                   // Translate to center
+  ctx.scale(zoomLevel, zoomLevel);                         // Apply zoom
+  ctx.translate(-uM, -vM);                                 // Translate back
+  
+  // Draw experiment components
+  screenLeft();                                            // Left part of observation screen
+  raysMaxima();                                            // Rays for maxima
+  screenRight();                                           // Right part of observation screen
+  
+  // Draw aperture based on type
+  if (apertureType === "circular") {
+    drawCircularAperture();                                // Draw circular aperture
+  } else {
+    singleSlit();                                          // Draw single slit
   }
+  
+  rayBefore();                                             // Light ray before the aperture
+  ctx.restore();                                           // Restore original state
+  
+  // Draw results section
+  ctx.fillStyle = colorBackground2;                        // Background color for experiment result
+  ctx.fillRect(0,300,width,height-300);                    // Fill background
+  ctx.font = FONT;                                         // Font
+  
+  // Draw either diffraction pattern or intensity distribution
+  if (rb1.checked) patternDiffraction();                   // Diffraction pattern
+  else distributionIntensity();                            // Intensity distribution
+  }
+  
+// Draw circular aperture:
+
+function drawCircularAperture() {
+  // Draw the opaque plate
+  drawPolygon(poly1,colorSingleSlit,true);                 // Filled parallelogram with border
+  
+  // Calculate aperture position and size
+  var apertureCenterU = uM;
+  var apertureCenterV = vM;
+  var apertureRadius = b * 1e6 / 2;                        // Convert from m to pixels with scaling
+  
+  // Draw the circular aperture (black circle in the plate)
+  ctx.fillStyle = "#000000";
+  ctx.beginPath();
+  ctx.arc(apertureCenterU, apertureCenterV, apertureRadius, 0, 2*Math.PI);
+  ctx.fill();
+  
+  // Draw border around the aperture
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(apertureCenterU, apertureCenterV, apertureRadius, 0, 2*Math.PI);
+  ctx.stroke();
+}
   
 document.addEventListener("DOMContentLoaded",start,false); // Nach dem Laden der HTML-Seite Methode start ausführen
 
@@ -855,7 +979,7 @@ var text06 = "Relative intensity:";
 var text07 = "Diffraction pattern";
 var text08 = "Intensity profile";
 
-var author = "W. Fendt 2003";
+var author = " ";
 
 // Symbole und Einheiten:
 

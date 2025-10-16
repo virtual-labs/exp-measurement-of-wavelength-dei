@@ -1,54 +1,387 @@
-
 <!DOCTYPE HTML>
 
 <html lang="en">
 
 <head>
-<title>Diffraction of light by a single slit</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="./css/main.css">
-<style>
-div#total { width: 740px; height: 440px; }
-div#canvas { width: 440px; height: 440px; }
-div#panel { left: 440px; width: 300px; height: 440px; }
-input[type="text"] { left: 150px; width: 80px; }
-input[type="range"] { width: 280px; }
-select { left: 150px; width: 140px; }
-.pos1 { left: 10px; }
-.pos2 { left: 150px; }
-.pos3 { left: 255px; }
-span.Max { margin: 15px auto 15px auto; display: block; width: 350px; }
-span.Min { margin: 15px auto 15px auto; display: block; width: 180px; }
-p.Abstand { margin-top: 20px; }
-</style>
-<script src="./js/main.js"></script>
-<meta name="description" content="HTML5 app: Diffraction of light by a single slit">
-<meta name="author" content="Walter Fendt">
-<meta name="keywords" content="app, physics, optics, interference, diffraction, single slit">
+  <title>Fraunhofer Diffraction: Single-Slit and Circular Aperture</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@6.5.1/dist/framer-motion.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta name="description" content="HTML5 app: Fraunhofer Diffraction with Single-Slit and Circular Aperture">
+  <meta name="author" content="Walter Fendt">
+  <meta name="keywords"
+    content="app, physics, optics, interference, diffraction, single slit, circular aperture, fraunhofer">
+  <script src="./js/main.js"></script>
 </head>
 
-<body>
+<body class="font-sans" style="background-color:var(--color-background); color:var(--color-text);">
 
+  <div class="container mx-auto px-4 py-8 max-w-7xl themed">
+    <!-- Theme toggle (fixed top-right) -->
+    <button id="theme-toggle" title="Toggle light / dark theme" aria-label="Toggle theme"
+      class="fixed top-4 right-4 z-50 bg-gray-800 text-white p-3 rounded-full shadow-lg">
+      <!-- Moon (dark) -->
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+      <!-- Sun (light) -->
+      <svg id="icon-sun" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41">
+        </path>
+      </svg>
+    </button>
+    <!-- <h1 class="text-3xl font-bold text-center mb-8 text-cyan-400">Fraunhofer Diffraction: Single-Slit and Circular
+      Aperture</h1> -->
 
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- Left Column: Controls Panel -->
+      <div class="lg:w-1/3 bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-700">
+        <h2 class="text-xl font-semibold mb-6 text-purple-400">Simulation Controls</h2>
 
-<div id="total">
-  <div id="canvas"><canvas id="cv" width=440 height=440>This browser doesn't support HTML5 canvas!</canvas></div>
-  <div id="panel">
-    <div style="top: 20px;"><span class="pos1" id="ip1a"></span><input type="text" id="ip1b"><span class="pos3" id="ip1c"></span></div>
-    <div style="top: 50px;"><input type="range" min=0 max=40  value="100" oninput="rangeValue.innerText = this.value" id="sl1"></div>
-    <div style="top: 90px;"><span class="pos1" id="ip2a"></span><input type="text" id="ip2b"><span class="pos3" id="ip2c"></span></div>
-    <div style="top: 120px;"><input type="range" min=0 max=45 id="sl2"></div>
-    <div style="top: 160px;"><span class="pos1" id="ip3a"></span><input type="text" id="ip3b"><span class="pos3" id="ip3c"></span></div>
-    <div style="top: 190px;"><input type="range" min=0 max=90 id="sl3"></div>
-    <div style="top: 230px;"><span class="pos1" id="ch1a"></span><select id="ch1b"></select></div>
-    <div style="top: 270px;"><span class="pos1" id="ch2a"></span><select id="ch2b"></select></div>
-    <div style="top: 310px;"><span class="pos1" id="op1a"></span><span class="pos2" id="op1b"></span></div>
-    <div style="top: 340px;"><input type="radio" id="rb1" name="bg" value=""><label for="rb1" id="lb1"></label></div>
-    <div style="top: 370px;"><input type="radio" id="rb2" name="bg" value=""><label for="rb2" id="lb2"></label></div>
-    <div style="top: 410px;"><span class="pos1" id="author"></span></div>
+        <!-- Wavelength Control -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex justify-between items-center mb-2">
+            <label for="ip1b" class="text-sm font-medium" id="ip1a"></label>
+            <div class="flex items-center">
+              <input type="text" id="ip1b"
+                class="w-20 bg-gray-800 text-white rounded-lg px-2 py-1 text-right border border-gray-600 focus:border-cyan-400 focus:outline-none">
+              <span id="ip1c" class="ml-2 text-sm text-gray-300"></span>
+            </div>
+          </div>
+          <input type="range" min="0" max="40" value="100" id="sl1"
+            class="w-full h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg appearance-none cursor-pointer">
+          <div class="flex justify-between text-xs text-gray-400 mt-1">
+            <span>380nm</span>
+            <span>780nm</span>
+          </div>
+        </div>
+
+        <!-- Slit Width Control -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex justify-between items-center mb-2">
+            <label for="ip2b" class="text-sm font-medium" id="ip2a"></label>
+            <div class="flex items-center">
+              <input type="text" id="ip2b"
+                class="w-20 bg-gray-800 text-white rounded-lg px-2 py-1 text-right border border-gray-600 focus:border-cyan-400 focus:outline-none">
+              <span id="ip2c" class="ml-2 text-sm text-gray-200"></span>
+            </div>
+          </div>
+          <input type="range" min="0" max="45" id="sl2"
+            class="w-full h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <!-- Aperture Type Dropdown -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <label for="aperture-type" class="block text-sm font-medium mb-2">Aperture Type</label>
+          <select id="aperture-type"
+            class="w-full bg-gray-800 text-white rounded-lg px-3 py-2 border border-gray-600 focus:border-cyan-400 focus:outline-none">
+            <option value="single-slit">Single-Slit</option>
+            <option value="circular">Circular</option>
+          </select>
+        </div>
+
+        <!-- Observation Angle Control -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex justify-between items-center mb-2">
+            <label for="ip3b" class="text-sm font-medium" id="ip3a"></label>
+            <div class="flex items-center">
+              <input type="text" id="ip3b"
+                class="w-20 bg-gray-800 text-white rounded-lg px-2 py-1 text-right border border-gray-600 focus:border-cyan-400 focus:outline-none">
+              <span id="ip3c" class="ml-2 text-sm text-gray-300"></span>
+            </div>
+          </div>
+          <input type="range" min="0" max="90" id="sl3"
+            class="w-full h-2 bg-gradient-to-r from-yellow-500 to-red-500 rounded-lg appearance-none cursor-pointer">
+        </div>
+
+        <!-- Maxima and Minima Selectors -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+            <label for="ch1b" class="block text-sm font-medium mb-2" id="ch1a"></label>
+            <select id="ch1b"
+              class="w-full bg-gray-800 text-white rounded-lg px-3 py-2 border border-gray-600 focus:border-cyan-400 focus:outline-none"></select>
+          </div>
+          <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+            <label for="ch2b" class="block text-sm font-medium mb-2" id="ch2a"></label>
+            <select id="ch2b"
+              class="w-full bg-gray-800 text-white rounded-lg px-3 py-2 border border-gray-600 focus:border-cyan-400 focus:outline-none"></select>
+          </div>
+        </div>
+
+        <!-- Intensity Output -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex justify-between items-center">
+            <span id="op1a" class="text-sm font-medium"></span>
+            <span id="op1b" class="text-lg font-bold text-cyan-400"></span>
+          </div>
+        </div>
+
+        <!-- Display Options -->
+        <div class="mb-6 bg-gray-700 rounded-xl p-4 shadow-md">
+          <h3 class="text-sm font-medium mb-3">Display Options</h3>
+          <div class="flex items-center mb-2">
+            <input type="radio" id="rb1" name="bg" value="" class="mr-2 accent-cyan-400">
+            <label for="rb1" id="lb1" class="text-sm"></label>
+          </div>
+          <div class="flex items-center">
+            <input type="radio" id="rb2" name="bg" value="" class="mr-2 accent-cyan-400">
+            <label for="rb2" id="lb2" class="text-sm"></label>
+          </div>
+        </div>
+
+        <!-- Zoom Controls -->
+        <!-- <div class="flex justify-center gap-4">
+          <button id="zoom-in" class="bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg px-4 py-2 transition-colors">
+            <i class="fas fa-search-plus mr-1"></i> Zoom In
+          </button>
+          <button id="zoom-out" class="bg-purple-600 hover:bg-purple-500 text-white rounded-lg px-4 py-2 transition-colors">
+            <i class="fas fa-search-minus mr-1"></i> Zoom Out
+          </button>
+        </div> -->
+      </div>
+
+      <!-- Right Column: Simulation Display -->
+      <div class="lg:w-2/3 flex flex-col gap-6">
+        <!-- Simulation Canvas -->
+        <div class="bg-gray-800 rounded-2xl shadow-lg p-4 border border-gray-700 flex justify-center items-center">
+          <div id="canvas" class="w-full h-[600px] bg-gray-900 rounded-xl flex justify-center items-center">
+            <canvas id="cv" width="800" height="500" class="max-w-full max-h-full">This browser doesn't support HTML5
+              canvas!</canvas>
+          </div>
+        </div>
+
+        <!-- Explanation Section -->
+        <div class="bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-700">
+          <h2 class="text-xl font-semibold mb-4 text-purple-400">How the Simulation Works</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <!-- Card 1 -->
+            <div class="bg-gray-700 rounded-xl p-4 shadow-md border-l-4 border-cyan-400">
+              <h3 class="text-lg font-medium mb-2 flex items-center">
+                <span class="text-cyan-400 mr-2">📌</span> Angle & Intensity
+              </h3>
+              <p class="text-sm text-gray-300">The angle of observation directly affects the intensity pattern. As the
+                angle changes, the interference pattern shifts accordingly.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-gray-700 rounded-xl p-4 shadow-md border-l-4 border-purple-400">
+              <h3 class="text-lg font-medium mb-2 flex items-center">
+                <span class="text-purple-400 mr-2">📌</span> Slit Width Effect
+              </h3>
+              <p class="text-sm text-gray-300">The width of the slit determines the spacing of diffraction minima.
+                Narrower slits produce wider diffraction patterns.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-gray-700 rounded-xl p-4 shadow-md border-l-4 border-yellow-400">
+              <h3 class="text-lg font-medium mb-2 flex items-center">
+                <span class="text-yellow-400 mr-2">📌</span> Fraunhofer Condition
+              </h3>
+              <p class="text-sm text-gray-300">This simulation assumes the Fraunhofer condition: both source and
+                observation screen are effectively at infinity.</p>
+            </div>
+          </div>
+
+          <!-- Tabbed Information -->
+          <div class="border-t border-gray-700 pt-4">
+            <div class="flex border-b border-gray-700">
+              <button class="tab-btn active px-4 py-2 text-cyan-400 border-b-2 border-cyan-400"
+                data-tab="theory">Theory</button>
+              <button class="tab-btn px-4 py-2 text-gray-400 hover:text-white" data-tab="steps">Steps</button>
+              <button class="tab-btn px-4 py-2 text-gray-400 hover:text-white" data-tab="results">Results</button>
+            </div>
+
+            <div class="tab-content pt-4" id="theory-content">
+              <p class="text-sm text-gray-300">Fraunhofer diffraction occurs when both the light source and the
+                observation screen are effectively at infinity. For a single slit of width b, the intensity I at angle θ
+                is given by:</p>
+              <div class="bg-gray-900 rounded-lg p-3 my-3 text-center flex justify-center">
+                <!-- <p class="text-cyan-400">I(θ) = I₀ [sin(πb sin θ/λ)/(πb sin θ/λ)]²</p> -->
+                <div class="text-cyan-400 w-60 flex flex-row item-center justify-center">
+                  <div class="col pt-4">I(θ) = I₀</div> 
+                  <span class="text-5xl font-thin text-blue-500">[</span>
+                     <div class="col pt-2">
+                      <p>sin(πb sin θ/λ)</p>
+                      <hr class="text-black font-bold text-4xl">
+                      <p>(πb sin θ/λ)</p>
+                    </div>
+                    <span class="text-5xl font-thin text-blue-500">]</span><span>²</span>
+                </div>
+              </div>
+              <p class="text-sm text-gray-300">Where I₀ is the maximum intensity, λ is the wavelength, and b is the slit
+                width.</p>
+            </div>
+
+            <div class="tab-content hidden pt-4" id="steps-content">
+              <ol class="list-decimal list-inside text-sm text-gray-300 space-y-2">
+                <li>Select the wavelength of light using the slider or input field</li>
+                <li>Choose the slit width or aperture diameter</li>
+                <li>Select the aperture type (single-slit or circular)</li>
+                <li>Adjust the observation angle to see how the diffraction pattern changes</li>
+                <li>Use the zoom controls to examine details of the pattern</li>
+                <li>Toggle between diffraction pattern view and intensity distribution</li>
+              </ol>
+            </div>
+
+            <div class="tab-content hidden pt-4" id="results-content">
+              <p class="text-sm text-gray-300">The simulation shows:</p>
+              <ul class="list-disc list-inside text-sm text-gray-300 space-y-2 mt-2">
+                <li>The positions of intensity maxima and minima</li>
+                <li>How the pattern width changes with slit width and wavelength</li>
+                <li>The relative intensity at different observation angles</li>
+                <li>The differences between single-slit and circular aperture patterns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help Section (Collapsible) -->
+    <div class="mt-6 bg-gray-800 rounded-2xl shadow-lg p-4 border border-gray-700">
+      <button id="help-toggle"
+        class="w-full flex justify-between items-center text-left text-lg font-semibold text-cyan-400 py-2">
+        <span>Interactive Help ⏬</span>
+        <i class="fas fa-chevron-down transition-transform"></i>
+      </button>
+
+      <div id="help-content" class="hidden mt-4 grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Step 1 -->
+        <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex items-center mb-2">
+            <div class="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold mr-3">1
+            </div>
+            <h3 class="text-md font-medium">Select Wavelength</h3>
+          </div>
+          <p class="text-sm text-gray-300">Adjust the wavelength slider to select different colors of light. This
+            affects the diffraction pattern spacing.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex items-center mb-2">
+            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white font-bold mr-3">2
+            </div>
+            <h3 class="text-md font-medium">Choose Aperture</h3>
+          </div>
+          <p class="text-sm text-gray-300">Select the aperture type and adjust its width. Narrower apertures create
+            wider diffraction patterns.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex items-center mb-2">
+            <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold mr-3">3
+            </div>
+            <h3 class="text-md font-medium">Adjust Angle</h3>
+          </div>
+          <p class="text-sm text-gray-300">Move the angle slider to observe how the diffraction pattern changes at
+            different observation angles.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-gray-700 rounded-xl p-4 shadow-md">
+          <div class="flex items-center mb-2">
+            <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-white font-bold mr-3">4
+            </div>
+            <h3 class="text-md font-medium">Observe Pattern</h3>
+          </div>
+          <p class="text-sm text-gray-300">Watch how the diffraction pattern changes. Use the zoom controls to examine
+            details of the intensity distribution.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center text-sm text-gray-500">
+      <span id="author"></span>
+    </div>
   </div>
-</div>
 
+  <script>
+    // Tab switching functionality
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and hide all content
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'text-cyan-400', 'border-cyan-400'));
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.add('text-gray-400'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
 
+        // Add active class to clicked button and show corresponding content
+        button.classList.add('active', 'text-cyan-400', 'border-cyan-400');
+        button.classList.remove('text-gray-400');
+        document.getElementById(`${button.dataset.tab}-content`).classList.remove('hidden');
+      });
+    });
+
+    // Help section toggle
+    const helpToggle = document.getElementById('help-toggle');
+    const helpContent = document.getElementById('help-content');
+    const helpIcon = helpToggle.querySelector('i');
+
+    helpToggle.addEventListener('click', () => {
+      helpContent.classList.toggle('hidden');
+      helpIcon.classList.toggle('transform');
+      helpIcon.classList.toggle('rotate-180');
+    });
+
+    // Initialize the simulation when the page loads
+    window.onload = function () {
+      start();
+    };
+  </script>
+
+  <script>
+    // Theme toggle: reads/writes preferred theme to localStorage and toggles .light class on <html>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('theme-toggle');
+      const iconSun = document.getElementById('icon-sun');
+      const iconMoon = document.getElementById('icon-moon');
+
+      function applyTheme(theme) {
+        if (theme === 'light') {
+          root.classList.add('light');
+          btn.classList.remove('bg-gray-800', 'text-white');
+          btn.classList.add('bg-white', 'text-gray-800');
+          iconSun.classList.remove('hidden');
+          iconMoon.classList.add('hidden');
+        } else {
+          root.classList.remove('light');
+          btn.classList.remove('bg-white', 'text-gray-800');
+          btn.classList.add('bg-gray-800', 'text-white');
+          iconSun.classList.add('hidden');
+          iconMoon.classList.remove('hidden');
+        }
+        // small theme transition cue
+        document.body.classList.add('theme-transition');
+        setTimeout(() => document.body.classList.remove('theme-transition'), 500);
+      }
+
+      // Load stored preference or use prefers-color-scheme if none
+      const stored = localStorage.getItem('theme');
+      if (stored) applyTheme(stored); else {
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        applyTheme(prefersLight ? 'light' : 'dark');
+      }
+
+      btn.addEventListener('click', () => {
+        const isLight = root.classList.contains('light');
+        const next = isLight ? 'dark' : 'light';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+      });
+    })();
+  </script>
 </body>
+
 </html>
