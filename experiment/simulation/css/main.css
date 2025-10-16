@@ -1,103 +1,472 @@
 /*====================================*/
-/* Stylesheet für Seite mit HTML5-App */
-/* 18.01.2021 - 16.08.2023            */
+/* Modern UI Stylesheet for Fraunhofer Diffraction Simulation */
+/* Updated: 2023                                             */
 /*====================================*/
 
-/* Das Stylesheet für normale Seiten (page.css) wird nachgeladen. */
-
-@import url(page.css);
-
-/* Schaltknopf */
+/* Base Styles */
+:root {
+  /* Dark Theme Colors (Default) */
+  --color-primary: #0ea5e9; /* cyan-500 */
+  --color-secondary: #a855f7; /* purple-500 */
+  --color-accent: #eab308; /* yellow-500 */
+  --color-background: #111827; /* gray-900 */
+  --color-card-bg: #1f2937; /* gray-800 */
+  --color-input-bg: #374151; /* gray-700 */
+  --color-border: #4b5563; /* gray-600 */
+  --color-text: #f9fafb; /* gray-50 */
+  --color-text-muted: #9ca3af; /* gray-400 */
+  --glow-cyan: 0 0 15px rgba(14, 165, 233, 0.5);
+  --glow-purple: 0 0 15px rgba(168, 85, 247, 0.5);
+  --glow-yellow: 0 0 15px rgba(234, 179, 8, 0.5);
   
-button {
-  height: 30px;       
-  border-radius: 0px;
-  border-style: outset;
-  border-width: 2px;
-  margin-left: 10px;
-  font: bold 12px sans-serif;
-  } 
+  /* For backward compatibility */
+  --color-dark: var(--color-background);
+  --color-dark-lighter: var(--color-card-bg);
+  --color-dark-lightest: var(--color-input-bg);
+}
 
-/* Gesamte App */
-   
-div#total {
-  position: relative;
-  margin: 20px auto 20px;
-  }
+/* Light Theme Colors */
+.light {
+  --color-primary: #0284c7; /* cyan-600 */
+  --color-secondary: #9333ea; /* purple-600 */
+  --color-accent: #ca8a04; /* yellow-600 */
+  --color-background: #f8fafc; /* slate-50 */
+  --color-card-bg: #f1f5f9; /* slate-100 */
+  --color-input-bg: #e2e8f0; /* slate-200 */
+  --color-border: #cbd5e1; /* slate-300 */
+  --color-text: #0f172a; /* slate-900 */
+  --color-text-muted: #64748b; /* slate-500 */
+  --glow-cyan: 0 0 15px rgba(2, 132, 199, 0.3);
+  --glow-purple: 0 0 15px rgba(147, 51, 234, 0.3);
+  --glow-yellow: 0 0 15px rgba(202, 138, 4, 0.3);
   
-/* Zeichenfläche */
+  /* For backward compatibility */
+  --color-dark: var(--color-background);
+  --color-dark-lighter: var(--color-card-bg);
+  --color-dark-lightest: var(--color-input-bg);
+}
 
+/* Theme Transition */
+body, button, input, select, div, h1, h2, h3, p, span, canvas {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.theme-transition {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+  100% { transform: scale(1); }
+}
+
+/* Smooth Scrolling and Font Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+/* Canvas Styling */
 div#canvas {
-  position: absolute;
-  background-color: #ffff00;
-  border: 1px solid #000000;
-  }
-  
-/* Schaltfläche */
-  
-div#panel, div#panel1, div#panel2 {
-  position: absolute;
-  background-color: #aeaeae;
-  border: 1px solid #000000;
-  font: bold 12px sans-serif;
-  }
-  
-/* Zeile einer Schaltfläche */
-  
-div#panel div , div#panel1 div, div#panel2 div {
-  position: absolute;
-  }
-  
-/* Optionsfeld */
+  position: relative;
+  background-color: var(--color-background);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
 
-input[type="checkbox"] {
-  margin-left: 10px;
-  border-radius: 0px; 
-  }
-  
-/* Radiobutton */
+canvas#cv {
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
 
-input[type="radio"] {
-  margin-left: 10px;  
-  }
-  
-/* Schieberegler */
+/* Canvas Animation */
+.zoom-in {
+  animation: zoom-in 0.3s ease;
+}
 
-input[type="range"] {
-  position: absolute;
-  left: 10px;
-  }
-  
-/* Eingabefeld */
+.zoom-out {
+  animation: zoom-out 0.3s ease;
+}
 
+@keyframes zoom-in {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes zoom-out {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Theme Toggle Animation */
+#theme-toggle {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+#theme-toggle svg {
+  transition: transform 0.5s ease;
+}
+
+#theme-toggle:active svg {
+  transform: rotate(360deg);
+}
+
+/* Input Controls Styling */
 input[type="text"] {
-  position: absolute;
-  padding-left: 2px;
-  height: 14px;
-  border-radius: 0px;
-  border-color: #000000;
-  border-width: 1px;
-  font: bold 12px sans-serif;
-  } 
-  
-/* Text für Optionsfeld oder Radiobutton */
-  
-label {
-  margin-left: 5px;
-  vertical-align: 2px;  
-  }
-  
-/* Auswahlfeld */
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
 
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+/* Light theme adjustments */
+.light input[type="text"] {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.light input[type="text"]:focus {
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+/* Custom Range Slider Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  outline: none;
+  transition: opacity 0.2s;
+}
+
+/* Default slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--color-dark-lightest);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--color-dark-lightest);
+}
+
+/* Wavelength slider with spectrum gradient */
+#sl1::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, 
+    #6a11cb 0%, /* Violet - 380nm */
+    #2575fc 16.7%, /* Blue - 450nm */
+    #00f2fe 33.3%, /* Cyan - 500nm */
+    #38ef7d 50%, /* Green - 550nm */
+    #fffb00 66.7%, /* Yellow - 580nm */
+    #ff9900 83.3%, /* Orange - 620nm */
+    #ff0000 100% /* Red - 750nm */
+  );
+}
+
+#sl1::-moz-range-track {
+  background: linear-gradient(to right, 
+    #6a11cb 0%, /* Violet - 380nm */
+    #2575fc 16.7%, /* Blue - 450nm */
+    #00f2fe 33.3%, /* Cyan - 500nm */
+    #38ef7d 50%, /* Green - 550nm */
+    #fffb00 66.7%, /* Yellow - 580nm */
+    #ff9900 83.3%, /* Orange - 620nm */
+    #ff0000 100% /* Red - 750nm */
+  );
+}
+
+/* Slider thumb styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  margin-top: -0.375rem; /* Center thumb on track */
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--glow-cyan);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Wavelength slider thumb color based on value */
+#sl1::-webkit-slider-thumb {
+  background-color: currentColor;
+}
+
+#sl1::-moz-range-thumb {
+  background-color: currentColor;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Select Dropdown Styling */
 select {
+  background-color: var(--color-dark-lighter);
+  color: var(--color-text);
+  border: 1px solid var(--color-dark-lightest);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  width: 100%;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+}
+
+/* Radio Button Styling */
+input[type="radio"] {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-dark-lightest);
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  box-shadow: inset 0 0 0 4px var(--color-dark-lighter);
+}
+
+/* Button Styling */
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3);
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--color-dark-lighter);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Animation Effects */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(14, 165, 233, 0.5);
+  }
+}
+
+.glow-effect {
+  animation: glow 2s infinite;
+}
+
+/* Tab Styling */
+.tab-btn {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.tab-btn::after {
+  content: '';
   position: absolute;
-  top: -3px;
-  left: 10px;
-  height: 20px;
-  border-radius: 0px;
-  font: bold 12px sans-serif;
-  background-color: #ffffff;
-  } 
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.tab-btn:hover::after {
+  width: 100%;
+}
+
+.tab-btn.active::after {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Zoom Animation */
+.zoom-in {
+  animation: zoom-in 0.3s ease forwards;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.zoom-out {
+  animation: zoom-out 0.3s ease forwards;
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Themed container: ensure text, inputs, ranges and internal panels use CSS variables */
+
+.themed {
+  color: var(--color-text);
+}
+
+.themed p, .themed label, .themed span, .themed h1, .themed h2, .themed h3, .themed li {
+  color: var(--color-text);
+}
+
+/* Inputs and selects inside the themed container */
+.themed input[type="text"],
+.themed select,
+.themed textarea {
+  background-color: var(--color-input-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.themed input[type="text"]::placeholder,
+.themed textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Range inputs: color the track and thumb using variables */
+.themed input[type="range"]::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, rgba(0,0,0,0.08), rgba(0,0,0,0.04));
+  background-color: var(--color-card-bg);
+}
+
+.themed input[type="range"]::-moz-range-track {
+  background-color: var(--color-card-bg);
+}
+
+.themed input[type="range"]::-webkit-slider-thumb {
+  background: var(--color-primary);
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.themed input[type="range"]::-moz-range-thumb {
+  background: var(--color-primary);
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+}
+
+/* Internal panels / cards */
+
+.themed .bg-gray-800,
+.themed .bg-gray-700,
+.themed .bg-gray-900 {
+  background-color: var(--color-card-bg) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text) !important;
+}
+
+.themed .text-gray-300,
+.themed .text-gray-400,
+.themed .text-gray-500,
+.themed .text-gray-200 {
+  color: var(--color-text-muted) !important;
+}
+
+
+/* Intensity Glow Effect */
+.intensity-high {
+  text-shadow: 0 0 10px var(--color-primary);
+}
+
   
 /* Inline-Element (span) innerhalb einer Schaltfläche */
   
