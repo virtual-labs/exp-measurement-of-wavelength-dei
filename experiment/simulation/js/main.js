@@ -1,21 +1,21 @@
-// Fraunhofer Diffraction: Single-Slit and Circular Aperture
-// Original Java-Applet (11.10.2003) converted to JavaScript
-// Updated UI: 2023
+// Wavelength Measurement Laboratory
+// Interactive Physics Simulation
+// Virtual Labs Platform - Educational Use
 
 // ****************************************************************************
-// * Author: Walter Fendt (www.walter-fendt.de)                               *
-// * This program may be used and distributed for non-commercial purposes,     *
-// * as long as this notice is not removed.                                    *
+// * Developed for Virtual Labs - Physics Education                           *
+// * Light Diffraction and Wavelength Analysis Experiment                     *
+// * Educational tool for understanding wave optics                           *
 // **************************************************************************** 
 
-// Language-dependent texts are stored in a separate file (e.g., singleslit_de.js).
+// Simulation parameters and visualization settings
 
 // Colors:
 
-var colorBackground1 = "#1f2937";                          // Background color for experiment setup (gray-800)
-var colorBackground2 = "#111827";                          // Background color for experiment result (gray-900)
-var colorSingleSlit = "#4b5563";                           // Color for single slit (gray-600)
-var colorIntensityMax = "#0ea5e9";                         // Color for maximum intensity (cyan-500)
+var colorBackground1 = "#1e293b";                          // Background color for experiment setup (slate-800)
+var colorBackground2 = "#0f172a";                          // Background color for experiment result (slate-900)
+var colorSingleSlit = "#475569";                           // Color for single slit (slate-600)
+var colorIntensityMax = "#ec4899";                         // Color for maximum intensity (pink-500)
 var colorIntensityMid = "#a855f7";                         // Color for medium intensity (purple-500)
 var colorIntensityLow = "#6366f1";                         // Color for low intensity (indigo-500)
 
@@ -979,7 +979,7 @@ var text06 = "Relative intensity:";
 var text07 = "Diffraction pattern";
 var text08 = "Intensity profile";
 
-var author = " ";
+var author = "Virtual Labs - Physics Education Platform";
 
 // Symbole und Einheiten:
 
