@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Which of the following best describes Fraunhofer diffraction?",
+      "question": "1. Which of the following best describes Fraunhofer diffraction?",
       "answers": {
         "a": "Light scattering from a rough surface",
         "b": "Bending of light as it travels past a sharp edge.",
@@ -19,7 +19,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "In Fraunhofer diffraction, what is the key characteristic of the light source and observation screen?",
+      "question": "2. In Fraunhofer diffraction, what is the key characteristic of the light source and observation screen?",
       "answers": {
         "a": "They are located very close to the diffracting object",
         "b": "The light source is a point source, and the screen is placed at the focal point of a lens",
@@ -27,12 +27,63 @@
         "d": "The light source is monochromatic, and the screen is highly reflective."
       },
       "explanations": {
-        "a": "Explanation 1 ",
+        "a": "Explanation 1",
         "b": "Explanation 2",
         "c": "Explanation 2  <a href='chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://egyankosh.ac.in/bitstream/123456789/81006/3/Unit-10.pdf'>here</a>",
         "d": "Explanation 2"
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. In a single-slit diffraction experiment using a He-Ne laser, the central maximum is observed to be the brightest because:",
+      "answers": {
+        "a": "All wavelengths are absorbed at the centre",
+        "b": "Constructive interference occurs for all rays from the slit",
+        "c": "Laser light does not diffract",
+        "d": "The slit blocks all side lobes"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. Which formula is used to calculate the wavelength of the He-Ne laser using single-slit diffraction?",
+      "answers": {
+        "a": "a sinθ = mλ",
+        "b": "d sinθ = mλ",
+        "c": "2d = nλ",
+        "d": "λ = v/f"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. In a single-slit diffraction pattern, increasing the slit width will:",
+      "answers": {
+        "a": "Increase the width of the central maximum",
+        "b": "Decrease the width of the central maximum",
+        "c": "Not affect the diffraction pattern",
+        "d": "Create more bright fringes"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
