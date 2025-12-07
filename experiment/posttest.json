@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "In a Fraunhofer diffraction experiment, what does the order (k) in the formulas refer to?",
+      "question": "1. In a Fraunhofer diffraction experiment, what does the order (k) in the formulas refer to?",
       "answers": {
         "a": "The number of diffracting objects used",
         "b": "The color of the light source",
@@ -10,14 +10,13 @@
         "d": "The location of a particular bright or dark fringe relative to the central maximum"
       },
       "explanations": {
-
         "d": "Explanation 2 <a href='https://en.wikipedia.org/wiki/Fraunhofer_diffraction'>here</a>"
       },
       "correctAnswer": "d",
       "difficulty": "beginner"
     },
     {
-      "question": "A single slit diffracts white light. Which of the following colors will deviate the most from the straight-through direction?",
+      "question": "2. A single slit diffracts white light. Which of the following colors will deviate the most from the straight-through direction?",
       "answers": {
         "a": "Red (Correct - Longer wavelengths diffract more)",
         "b": "Green",
@@ -26,9 +25,50 @@
       },
       "explanations": {
         "a": "Explanation 1  <a href='https://www.doubtnut.com/qna/31678260'>here</a>"
-
       },
       "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Which parameter must be measured on the screen to calculate the wavelength of a He-Ne laser in a single-slit diffraction setup?",
+      "answers": {
+        "a": "Distance between two bright fringes",
+        "b": "Position of the central maximum only",
+        "c": "Distance between consecutive minima",
+        "d": "Total intensity of the diffraction pattern"
+      },
+      "explanations": {
+        "c": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. If the distance between the slit and the screen (D) is doubled in a single-slit diffraction experiment, the fringe width will:",
+      "answers": {
+        "a": "Become half",
+        "b": "Become double",
+        "c": "Become four times",
+        "d": "Remain unchanged"
+      },
+      "explanations": {
+        "b": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. He–Ne laser light is used in diffraction experiments mainly because:",
+      "answers": {
+        "a": "It has a high amount of heat",
+        "b": "It produces monochromatic and coherent light",
+        "c": "It changes color during propagation",
+        "d": "It produces very divergent beams"
+      },
+      "explanations": {
+        "b": ""
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
