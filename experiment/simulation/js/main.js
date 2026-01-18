@@ -376,6 +376,34 @@ function updateOutput () {
   op.innerHTML = ToString(i,4,true);        // Relative intensity
   }
   
+// Update Live Observation Table:
+// Updates the table with current angle and wavelength values
+
+function updateObservationTable() {
+  var tableAngle = document.getElementById('table-angle');
+  var tableWavelength = document.getElementById('table-wavelength');
+  
+  if (tableAngle) {
+    var angleDegrees = (alpha / DEG).toFixed(1);
+    tableAngle.textContent = angleDegrees + '°';
+    // Add visual feedback with color based on angle
+    if (alpha > 60 * DEG) {
+      tableAngle.style.color = '#f87171'; // red-400 for high angles
+    } else if (alpha > 30 * DEG) {
+      tableAngle.style.color = '#fbbf24'; // amber-400 for medium angles
+    } else {
+      tableAngle.style.color = '#fcd34d'; // amber-300 for low angles
+    }
+  }
+  
+  if (tableWavelength) {
+    var wavelengthNm = Math.round(lambda * 1e9);
+    tableWavelength.textContent = wavelengthNm + ' nm';
+    // Apply wavelength-based color for visual feedback
+    tableWavelength.style.color = rgb(lambda);
+  }
+}
+
 // Input, calculations, output, redraw:
 // mm ... Flag for updating selection fields for maxima/minima
 // Side effect lambda, b, alpha  
@@ -384,6 +412,7 @@ function reaction (mm) {
   input();                                                 // Input
   if (mm) updateMaxMin();                                  // Update selection fields for maxima/minima if needed
   updateOutput();                                          // Update output
+  updateObservationTable();                                // Update live observation table
   updateSlit();                                            // Update polygon corners for slit
   paint();                                                 // Redraw
   }  

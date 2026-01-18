@@ -491,4 +491,97 @@ textarea {
 
 /* Add the following styles at the end of your existing CSS */
 
-/* You CSS goes in here */
+/* Live Observation Table Styles */
+#observation-table {
+  border-collapse: collapse;
+}
+
+#observation-table th,
+#observation-table td {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#observation-table tbody tr {
+  cursor: default;
+}
+
+#observation-table tbody tr:hover td {
+  background-color: rgba(16, 185, 129, 0.15);
+}
+
+/* Table value animation on update */
+@keyframes valueUpdate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); color: #fbbf24; }
+  100% { transform: scale(1); }
+}
+
+.value-updated {
+  animation: valueUpdate 0.3s ease;
+}
+
+/* Guided text pulse animation */
+@keyframes guidedPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-pulse {
+  animation: guidedPulse 2s ease-in-out infinite;
+}
+
+/* Enhanced table styling for light theme */
+.light #observation-table th {
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.2));
+  color: #065f46;
+}
+
+.light #observation-table td {
+  color: #1f2937;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.light #observation-table #table-angle,
+.light #observation-table #table-wavelength {
+  font-weight: 700;
+}
+
+/* Table container glow effect */
+#observation-table:hover {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Smooth transition for wavelength color changes */
+#table-wavelength {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 0 0 8px currentColor;
+}
+
+/* Angle color indication */
+#table-angle {
+  transition: color 0.3s ease;
+}
+
+/* Procedure section enhancement */
+.procedure-step {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.procedure-step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
