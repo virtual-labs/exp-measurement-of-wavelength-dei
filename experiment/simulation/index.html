@@ -23,8 +23,8 @@
 
   <div class="container mx-auto px-4 py-8 max-w-7xl themed">
     <!-- Header Section -->
-   
-    
+
+
     <!-- Theme toggle (fixed top-right) -->
     <button id="theme-toggle" title="Toggle light / dark theme" aria-label="Toggle theme"
       class="fixed top-4 right-4 z-50 bg-gray-800 text-white p-3 rounded-full shadow-lg">
@@ -47,11 +47,15 @@
 
     <div class="flex flex-col lg:flex-row gap-6">
       <!-- Left Column: Controls Panel -->
-      <div class="lg:w-1/3 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-6 border-2 border-indigo-600">
-        <h2 class="text-xl font-semibold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">⚙️ Experiment Parameters</h2>
+      <div
+        class="lg:w-1/3 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-6 border-2 border-indigo-600">
+        <h2
+          class="text-xl font-semibold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+          ⚙️ Experiment Parameters</h2>
 
         <!-- Wavelength Control -->
-        <div class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-indigo-500/30">
+        <div
+          class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-indigo-500/30">
           <div class="flex justify-between items-center mb-2">
             <label for="ip1b" class="text-sm font-medium" id="ip1a"></label>
             <div class="flex items-center">
@@ -69,7 +73,8 @@
         </div>
 
         <!-- Slit Width Control -->
-        <div class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-blue-500/30">
+        <div
+          class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-blue-500/30">
           <div class="flex justify-between items-center mb-2">
             <label for="ip2b" class="text-sm font-medium" id="ip2a"></label>
             <div class="flex items-center">
@@ -83,8 +88,10 @@
         </div>
 
         <!-- Aperture Type Dropdown -->
-        <div class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-purple-500/30">
-          <label for="aperture-type" class="block text-sm font-medium mb-2 text-purple-300">🔬 Aperture Configuration</label>
+        <div
+          class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-purple-500/30">
+          <label for="aperture-type" class="block text-sm font-medium mb-2 text-purple-300">🔬 Aperture
+            Configuration</label>
           <select id="aperture-type"
             class="w-full bg-slate-900 text-white rounded-lg px-3 py-2 border border-purple-600 focus:border-pink-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50">
             <option value="single-slit">Single-Slit</option>
@@ -92,7 +99,8 @@
         </div>
 
         <!-- Observation Angle Control -->
-        <div class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-yellow-500/30">
+        <div
+          class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-yellow-500/30">
           <div class="flex justify-between items-center mb-2">
             <label for="ip3b" class="text-sm font-medium" id="ip3a"></label>
             <div class="flex items-center">
@@ -107,7 +115,8 @@
 
         <!-- Maxima and Minima Selectors -->
         <div class="grid grid-cols-2 gap-4 mb-4">
-          <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-green-500/30">
+          <div
+            class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-green-500/30">
             <label for="ch1b" class="block text-sm font-medium mb-2" id="ch1a"></label>
             <select id="ch1b"
               class="w-full bg-slate-900 text-white rounded-lg px-3 py-2 border border-green-600 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-500/50"></select>
@@ -120,15 +129,61 @@
         </div>
 
         <!-- Intensity Output -->
-        <div class="mb-4 bg-gradient-to-br from-indigo-900 to-purple-900 rounded-xl p-4 shadow-lg border-2 border-cyan-500/50">
+        <div
+          class="mb-4 bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-xl p-4 shadow-lg border-2 border-cyan-500/50">
           <div class="flex justify-between items-center">
             <span id="op1a" class="text-sm font-medium text-cyan-300"></span>
             <span id="op1b" class="text-lg font-bold text-cyan-300"></span>
           </div>
         </div>
 
+        <!-- Live Observation Table -->
+        <div
+          class="mb-4 bg-gradient-to-br from-emerald-900/60 to-teal-900/60 rounded-xl p-4 shadow-lg border-2 border-emerald-500/50">
+          <h3 class="text-sm font-semibold mb-3 flex items-center text-emerald-300">
+            <span class="mr-2">📊</span> Live Observation Data
+          </h3>
+          <div class="overflow-hidden rounded-lg border border-emerald-600/40">
+            <table class="w-full text-sm" id="observation-table">
+              <thead>
+                <tr class="bg-gradient-to-r from-emerald-800/50 to-teal-800/50">
+                  <th class="px-3 py-2 text-left text-emerald-200 font-medium border-b border-emerald-600/40">Parameter
+                  </th>
+                  <th class="px-3 py-2 text-right text-emerald-200 font-medium border-b border-emerald-600/40">Value
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hover:bg-emerald-800/30 transition-colors">
+                  <td class="px-3 py-2 text-gray-200 border-b border-emerald-700/30">
+                    <span class="text-amber-400 mr-1">θ</span> Angle of Observation
+                  </td>
+                  <td class="px-3 py-2 text-right font-mono font-semibold text-amber-300 border-b border-emerald-700/30"
+                    id="table-angle">0.0°</td>
+                </tr>
+                <tr class="hover:bg-emerald-800/30 transition-colors">
+                  <td class="px-3 py-2 text-gray-200">
+                    <span class="text-cyan-400 mr-1">λ</span> Wavelength
+                  </td>
+                  <td class="px-3 py-2 text-right font-mono font-semibold text-cyan-300" id="table-wavelength">600 nm
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Guided Text -->
+          <div
+            class="mt-3 px-3 py-2 bg-gradient-to-r from-emerald-900/50 to-teal-900/50 rounded-lg border border-emerald-500/30">
+            <p class="text-xs text-emerald-200 flex items-center">
+              <span class="text-yellow-400 mr-2 animate-pulse">💡</span>
+              <em>"Observe how wavelength changes with angle for different diffraction patterns."</em>
+            </p>
+          </div>
+        </div>
+
         <!-- Display Options -->
-        <div class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-pink-500/30">
+        <div
+          class="mb-4 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-pink-500/30">
           <h3 class="text-sm font-medium mb-3 text-pink-300">👁️ Visualization Mode</h3>
           <div class="flex items-center mb-2">
             <input type="radio" id="rb1" name="bg" value="" class="mr-2 accent-pink-500">
@@ -154,7 +209,8 @@
       <!-- Right Column: Simulation Display -->
       <div class="lg:w-2/3 flex flex-col gap-6">
         <!-- Simulation Canvas -->
-        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-4 border-2 border-indigo-600 flex justify-center items-center">
+        <div
+          class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-4 border-2 border-indigo-600 flex justify-center items-center">
           <div id="canvas" class="w-full h-[600px] bg-black rounded-xl flex justify-center items-center shadow-inner">
             <canvas id="cv" width="800" height="500" class="max-w-full max-h-full">This browser doesn't support HTML5
               canvas!</canvas>
@@ -162,57 +218,69 @@
         </div>
 
         <!-- Explanation Section -->
-        <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-6 border-2 border-purple-600">
-          <h2 class="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">📚 Understanding Light Diffraction</h2>
+        <div
+          class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-6 border-2 border-purple-600">
+          <h2
+            class="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            📚 Understanding Light Diffraction</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <!-- Card 1 -->
-            <div class="bg-gradient-to-br from-cyan-900/50 to-blue-900/50 rounded-xl p-4 shadow-lg border-l-4 border-cyan-400">
+            <div
+              class="bg-gradient-to-br from-cyan-900/50 to-blue-900/50 rounded-xl p-4 shadow-lg border-l-4 border-cyan-400">
               <h3 class="text-lg font-medium mb-2 flex items-center">
                 <span class="text-cyan-400 mr-2">🔵</span> Angular Position
               </h3>
-              <p class="text-sm text-gray-300">Observation angle determines where bright and dark fringes appear in the diffraction pattern on the screen.</p>
+              <p class="text-sm text-gray-300">Observation angle determines where bright and dark fringes appear in the
+                diffraction pattern on the screen.</p>
             </div>
 
             <!-- Card 2 -->
-            <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl p-4 shadow-lg border-l-4 border-purple-400">
+            <div
+              class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl p-4 shadow-lg border-l-4 border-purple-400">
               <h3 class="text-lg font-medium mb-2 flex items-center">
                 <span class="text-purple-400 mr-2">🟣</span> Aperture Width
               </h3>
-              <p class="text-sm text-gray-300">Smaller apertures create broader diffraction patterns. The slit size inversely affects the fringe spacing.</p>
+              <p class="text-sm text-gray-300">Smaller apertures create broader diffraction patterns. The slit size
+                inversely affects the fringe spacing.</p>
             </div>
 
             <!-- Card 3 -->
-            <div class="bg-gradient-to-br from-amber-900/50 to-orange-900/50 rounded-xl p-4 shadow-lg border-l-4 border-amber-400">
+            <div
+              class="bg-gradient-to-br from-amber-900/50 to-orange-900/50 rounded-xl p-4 shadow-lg border-l-4 border-amber-400">
               <h3 class="text-lg font-medium mb-2 flex items-center">
                 <span class="text-amber-400 mr-2">🟡</span> Far-Field Diffraction
               </h3>
-              <p class="text-sm text-gray-300">This experiment demonstrates far-field diffraction where both light source and observation plane are at large distances.</p>
+              <p class="text-sm text-gray-300">This experiment demonstrates far-field diffraction where both light
+                source and observation plane are at large distances.</p>
             </div>
           </div>
 
           <!-- Tabbed Information -->
           <div class="border-t border-gray-700 pt-4">
             <div class="flex border-b border-purple-700">
-              <button class="tab-btn active px-4 py-2 text-pink-400 border-b-2 border-pink-400"
-                data-tab="theory">📖 Theory</button>
+              <button class="tab-btn active px-4 py-2 text-pink-400 border-b-2 border-pink-400" data-tab="theory">📖
+                Theory</button>
               <button class="tab-btn px-4 py-2 text-gray-400 hover:text-pink-300" data-tab="steps">🔬 Procedure</button>
-              <button class="tab-btn px-4 py-2 text-gray-400 hover:text-pink-300" data-tab="results">📊 Observations</button>
+              <button class="tab-btn px-4 py-2 text-gray-400 hover:text-pink-300" data-tab="results">📊
+                Observations</button>
             </div>
 
             <div class="tab-content pt-4" id="theory-content">
-              <p class="text-sm text-gray-300">When light passes through a narrow aperture, it diffracts and creates an interference pattern. For a slit of width b, the intensity distribution I at angle θ follows:</p>
-              <div class="bg-gradient-to-br from-indigo-950 to-purple-950 rounded-lg p-3 my-3 text-center flex justify-center border border-pink-500/30">
+              <p class="text-sm text-gray-300">When light passes through a narrow aperture, it diffracts and creates an
+                interference pattern. For a slit of width b, the intensity distribution I at angle θ follows:</p>
+              <div
+                class="bg-gradient-to-br from-indigo-950 to-purple-950 rounded-lg p-3 my-3 text-center flex justify-center border border-pink-500/30">
                 <!-- <p class="text-cyan-400">I(θ) = I₀ [sin(πb sin θ/λ)/(πb sin θ/λ)]²</p> -->
                 <div class="text-pink-300 w-60 flex flex-row item-center justify-center">
-                  <div class="col pt-4">I(θ) = I₀</div> 
+                  <div class="col pt-4">I(θ) = I₀</div>
                   <span class="text-5xl font-thin text-purple-400">[</span>
-                     <div class="col pt-2">
-                      <p>sin(πb sin θ/λ)</p>
-                      <hr class="text-black font-bold text-4xl">
-                      <p>(πb sin θ/λ)</p>
-                    </div>
-                    <span class="text-5xl font-thin text-purple-400">]</span><span>²</span>
+                  <div class="col pt-2">
+                    <p>sin(πb sin θ/λ)</p>
+                    <hr class="text-black font-bold text-4xl">
+                    <p>(πb sin θ/λ)</p>
+                  </div>
+                  <span class="text-5xl font-thin text-purple-400">]</span><span>²</span>
                 </div>
               </div>
               <p class="text-sm text-gray-300">Where I₀ is the maximum intensity, λ is the wavelength, and b is the slit
@@ -245,7 +313,8 @@
     </div>
 
     <!-- Help Section (Collapsible) -->
-    <div class="mt-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-4 border-2 border-purple-600">
+    <div
+      class="mt-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl p-4 border-2 border-purple-600">
       <button id="help-toggle"
         class="w-full flex justify-between items-center text-left text-lg font-semibold text-pink-400 py-2">
         <span>💡 Quick Guide</span>
@@ -256,41 +325,53 @@
         <!-- Step 1 -->
         <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-cyan-500/30">
           <div class="flex items-center mb-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">1
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+              1
             </div>
             <h3 class="text-md font-medium text-cyan-300">Configure Light</h3>
           </div>
-          <p class="text-sm text-gray-300">Use the spectrum slider to choose wavelength. Different colors create unique diffraction patterns.</p>
+          <p class="text-sm text-gray-300">Use the spectrum slider to choose wavelength. Different colors create unique
+            diffraction patterns.</p>
         </div>
 
         <!-- Step 2 -->
         <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-purple-500/30">
           <div class="flex items-center mb-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">2
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+              2
             </div>
             <h3 class="text-md font-medium text-purple-300">Set Aperture</h3>
           </div>
-          <p class="text-sm text-gray-300">Adjust aperture dimensions and type. Smaller openings produce broader diffraction spreads.</p>
+          <p class="text-sm text-gray-300">Adjust aperture dimensions and type. Smaller openings produce broader
+            diffraction spreads.</p>
         </div>
 
         <!-- Step 3 -->
         <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-blue-500/30">
           <div class="flex items-center mb-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">3
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+              3
             </div>
             <h3 class="text-md font-medium text-blue-300">Vary Angle</h3>
           </div>
-          <p class="text-sm text-gray-300">Change viewing angle to explore intensity variations across the diffraction pattern.</p>
+          <p class="text-sm text-gray-300">Change viewing angle to explore intensity variations across the diffraction
+            pattern.</p>
         </div>
 
         <!-- Step 4 -->
         <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-4 shadow-lg border border-amber-500/30">
           <div class="flex items-center mb-2">
-            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">4
+            <div
+              class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white font-bold mr-3 shadow-lg">
+              4
             </div>
             <h3 class="text-md font-medium text-amber-300">Analyze Results</h3>
           </div>
-          <p class="text-sm text-gray-300">Study the resulting interference patterns and intensity graphs to understand wave behavior.</p>
+          <p class="text-sm text-gray-300">Study the resulting interference patterns and intensity graphs to understand
+            wave behavior.</p>
         </div>
       </div>
     </div>

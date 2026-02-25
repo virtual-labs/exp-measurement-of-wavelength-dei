@@ -1,2 +1,1 @@
-## AIM<br />
-The aim of the experiment is to measure wavelength of a laser (He-Ne) light
+To measure the wavelength of a laser (He-Ne) light using single-slit diffraction.
