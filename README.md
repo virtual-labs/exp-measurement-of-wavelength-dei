@@ -1,24 +1,30 @@
 ## Introduction
 
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | <b>Physics
 :--|:--|
-<b> Lab | <b> Fill your lab name here
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Lab | <b> Waves, Optics and Quantum Mechanics
+<b> Experiment|     <b> Measurement of wavelength of a laser (He-Ne) light using single-slit diffraction
+
 
 ### About the Experiment 
 
-Fill a brief description of this experiment here
-
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+This experiment uses single-slit diffraction of a He-Ne laser to observe the diffraction pattern and calculate the laser’s wavelength based on fringe spacing. It demonstrates how wave interference through a narrow slit can be used for precise wavelength measurement.
+  
+<b>Name of Developer | <b> Professor Sukhdev Roy 
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<b> Institute | <b>  Dayalbagh Educational Institute(D.E.I.)
+<b> Email id|     <b>  sukhdevroy@dei.ac.in
+<b> Department |  Physics & Computer Science
 
 ### Contributors List
 
+
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+
+SrNo | Name | Faculty or Student | Department| Institute | Email id
+:--|:--|:--|:--|:--|:--|
+1 | Deepak kumar | Student | Physics and Computer Science | Dayalbagh Educational Institute(D.E.I.) | deepakkumar2103133@dei.ac.in
+2 | Nripesh Dixit | Research Scholar | Physics and Computer Science | Dayalbagh Educational Institute(D.E.I.) | nripeshdixit@dei.ac.in
+3 | Km. Jyoti Singh | Research Scholar | Physics and Computer Science | Dayalbagh Educational Institute(D.E.I.) | Jyotisingh1@dei.ac.in
