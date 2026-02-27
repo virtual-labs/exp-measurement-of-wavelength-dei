@@ -5,9 +5,9 @@ The He–Ne laser emits nearly monochromatic red light of wavelength approximate
 
 Let a parallel beam of monochromatic light of wavelength <b>&lambda;</b> be incident normally upon a narrow slit AB of width <b>d</b>, where it gets diffracted as shown in Fig. 1. If a lens L is placed in the path of the diffracted beam, a real image of the diffraction pattern is formed on the screen SS&prime; in the focal plane of the lens.
 
-<figure>
+<figure style="text-align:center;">
   <img src="images/theory_fig1.png" alt="Single-slit Fraunhofer diffraction setup" style="max-width:600px;" />
-  <figcaption><strong>Fig. 1:</strong> Single-slit Fraunhofer diffraction setup</figcaption>
+  <figcaption style="text-align:center;"><strong>Fig. 1:</strong> Single-slit Fraunhofer diffraction setup</figcaption>
 </figure>
 
 <b>Path Difference:</b>
@@ -56,7 +56,7 @@ Since the magnitude of intensity at any point in the focal plane of the lens is 
 
 Fraunhofer diffraction is shown in Fig. 2, which explains how light waves spread and form patterns (bright/dark fringes) when passing through a slit under conditions where the source and screen are effectively at infinite distances.
 
-<figure>
-  <img src="images/image4.jpg" alt="Fraunhofer single-slit diffraction intensity pattern" style="max-width:600px;" />
-  <figcaption><strong>Fig. 2:</strong> Fraunhofer single-slit diffraction pattern showing intensity distribution</figcaption>
+<figure style="text-align:center;">
+  <img src="images/theory_fig2.png" alt="Fraunhofer single-slit diffraction intensity pattern" style="max-width:600px;" />
+  <figcaption style="text-align:center;"><strong>Fig. 2:</strong> Fraunhofer single-slit diffraction pattern showing intensity distribution</figcaption>
 </figure>
