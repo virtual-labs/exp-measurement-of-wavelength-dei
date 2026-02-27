@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. In single-slit Fraunhofer diffraction, the condition for the k-th minimum is:",
+      "answers": {
+        "a": "d sinθ = (k + 1/2)λ",
+        "b": "d sinθ = kλ",
+        "c": "d sinθ = kλ/2",
+        "d": "d cosθ = kλ"
+      },
+      "explanations": {
+        "a": "This is the condition for secondary maxima, not minima.",
+        "b": "Correct. The k-th dark fringe (minimum) occurs when d sinθ = kλ, where k = 1, 2, 3, …",
+        "c": "This does not represent any standard diffraction condition.",
+        "d": "The condition uses sinθ, not cosθ."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. The wavelength of the He–Ne laser commonly used in diffraction experiments is approximately:",
+      "answers": {
+        "a": "400 nm",
+        "b": "532 nm",
+        "c": "632.8 nm",
+        "d": "780 nm"
+      },
+      "explanations": {
+        "a": "400 nm is at the violet end of the visible spectrum.",
+        "b": "532 nm corresponds to a green diode-pumped solid-state laser.",
+        "c": "Correct. The He–Ne laser emits red light at approximately 632.8 nm.",
+        "d": "780 nm is in the near-infrared region, used in CD player lasers."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Which formula is used to calculate the wavelength of the He–Ne laser using single-slit diffraction?",
+      "answers": {
+        "a": "d · cosθ = λ/2",
+        "b": "d · tanθ = λ",
+        "c": "d · sinθ = mλ",
+        "d": "2d · sinθ = mλ"
+      },
+      "explanations": {
+        "a": "This formula does not apply to single-slit diffraction minima.",
+        "b": "tanθ is not used in the standard diffraction formula.",
+        "c": "Correct. For single-slit diffraction minima: d sinθ = mλ, where m is the order of the minimum.",
+        "d": "The factor 2d is used in Bragg's law for X-ray diffraction, not single-slit optical diffraction."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. The angular position of the diffraction minima in a single-slit experiment depends on:",
+      "answers": {
+        "a": "Slit length only",
+        "b": "Distance between slit and screen",
+        "c": "Slit width and wavelength",
+        "d": "Intensity of the laser light"
+      },
+      "explanations": {
+        "a": "Slit length does not determine the angular minima positions.",
+        "b": "The screen distance affects fringe width on the screen but not the angular positions.",
+        "c": "Correct. From d sinθ = kλ, the angular position θ depends on slit width d and wavelength λ.",
+        "d": "Intensity affects brightness but not the angular positions of minima."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. The central maximum in single-slit Fraunhofer diffraction is:",
+      "answers": {
+        "a": "Equal in width to secondary maxima",
+        "b": "Narrower than secondary maxima",
+        "c": "Twice the width of secondary maxima",
+        "d": "Half the width of secondary maxima"
+      },
+      "explanations": {
+        "a": "The central maximum is wider than secondary maxima.",
+        "b": "The central maximum is the widest region in the pattern.",
+        "c": "Correct. The central maximum spans from –λ/d to +λ/d, making it twice as wide as each secondary maximum.",
+        "d": "The central maximum is wider, not narrower, than secondary maxima."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. What type of wavefront is assumed in Fraunhofer diffraction?",
+      "answers": {
+        "a": "Spherical wavefront",
+        "b": "Cylindrical wavefront",
+        "c": "Plane wavefront",
+        "d": "Elliptical wavefront"
+      },
+      "explanations": {
+        "a": "Spherical wavefronts arise from a point source at finite distance — that is Fresnel diffraction.",
+        "b": "Cylindrical wavefronts come from a line source at finite distance.",
+        "c": "Correct. In Fraunhofer diffraction, the source and screen are at effectively infinite distance, so the wavefront is plane.",
+        "d": "Elliptical wavefronts are not used in standard diffraction theory."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "7. The width of the central maximum in single-slit diffraction is inversely proportional to:",
+      "answers": {
+        "a": "The wavelength of light",
+        "b": "The distance from the slit to the screen",
+        "c": "The width of the slit",
+        "d": "The intensity of the laser"
+      },
+      "explanations": {
+        "a": "Width is directly proportional to wavelength (wider for longer λ).",
+        "b": "Width is directly proportional to screen distance D.",
+        "c": "Correct. Width of central maximum = 2λD/d, so it is inversely proportional to slit width d.",
+        "d": "Intensity does not affect the geometric width of the central maximum."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "8. The bright and dark fringes in single-slit diffraction are produced due to:",
+      "answers": {
+        "a": "Reflection of light from the slit edges",
+        "b": "Refraction of light through the slit material",
+        "c": "Interference of secondary wavelets originating from different parts of the slit",
+        "d": "Total internal reflection inside the slit"
+      },
+      "explanations": {
+        "a": "Reflection is not responsible for diffraction fringe formation.",
+        "b": "Refraction changes light direction but does not produce diffraction fringes.",
+        "c": "Correct. According to Huygens' principle, each point of the slit acts as a secondary source; their interference produces the fringe pattern.",
+        "d": "Total internal reflection occurs inside denser media, not in air slits."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "9. He–Ne laser light is preferred in diffraction experiments because it is:",
+      "answers": {
+        "a": "Polychromatic and incoherent",
+        "b": "Monochromatic and coherent",
+        "c": "White light with high intensity",
+        "d": "Infrared and highly divergent"
+      },
+      "explanations": {
+        "a": "Polychromatic incoherent light would produce overlapping, blurred patterns.",
+        "b": "Correct. He–Ne laser emits a single wavelength (632.8 nm) with high coherence, producing sharp and clear diffraction patterns.",
+        "c": "White light is polychromatic and would produce coloured overlapping fringes.",
+        "d": "He–Ne laser emits visible red light, not infrared, and is highly collimated (not divergent)."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "10. In Fraunhofer single-slit diffraction, if the slit width is doubled while keeping the wavelength constant, the angular width of the central maximum:",
+      "answers": {
+        "a": "Doubles",
+        "b": "Remains the same",
+        "c": "Becomes half",
+        "d": "Becomes four times"
+      },
+      "explanations": {
+        "a": "Doubling d decreases the angular width, it does not double it.",
+        "b": "The angular width changes when slit width changes.",
+        "c": "Correct. Angular half-width = λ/d; doubling d gives λ/(2d), so the total angular width becomes half.",
+        "d": "The angular width does not increase when slit width increases."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    }
+  ]
+}

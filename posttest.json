@@ -1,0 +1,175 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "1. In a Fraunhofer diffraction experiment, what does the order (k) in the formula d sinθ = kλ refer to?",
+      "answers": {
+        "a": "The number of diffracting slits used",
+        "b": "The colour of the light source",
+        "c": "The type of material used for the aperture",
+        "d": "The location of a particular dark fringe relative to the central maximum"
+      },
+      "explanations": {
+        "a": "Number of slits is a parameter of diffraction gratings, not single-slit order.",
+        "b": "Colour is related to wavelength, not to the order number.",
+        "c": "Material of the aperture is irrelevant to fringe order.",
+        "d": "Correct. k = 1, 2, 3, … denotes the 1st, 2nd, 3rd, … dark fringe (minimum) on either side of the central maximum. <a href='https://en.wikipedia.org/wiki/Fraunhofer_diffraction'>Learn more</a>"
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "2. A single slit diffracts white light. Which colour deviates the most from the straight-through (central) direction?",
+      "answers": {
+        "a": "Red — longer wavelengths diffract more",
+        "b": "Green",
+        "c": "Blue",
+        "d": "All colours deviate by the same amount"
+      },
+      "explanations": {
+        "a": "Correct. From d sinθ = kλ, larger λ means larger θ for the same order. Red has the longest wavelength in the visible spectrum and therefore diffracts the most. <a href='https://www.doubtnut.com/qna/31678260'>Reference</a>",
+        "b": "Green has a medium wavelength and therefore an intermediate deviation.",
+        "c": "Blue has a shorter wavelength than red and deviates less.",
+        "d": "Different colours have different wavelengths and therefore different deviation angles."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "3. Which parameter must be measured in the simulation to calculate the wavelength of the He–Ne laser in a single-slit diffraction setup?",
+      "answers": {
+        "a": "Distance between two consecutive bright fringes",
+        "b": "Position of the central maximum only",
+        "c": "Angle of observation (θ) at the first-order minimum",
+        "d": "Total intensity of the diffraction pattern"
+      },
+      "explanations": {
+        "a": "Distances between bright fringes are harder to measure precisely; minima positions are used.",
+        "b": "The central maximum is at θ = 0° — it does not give wavelength information.",
+        "c": "Correct. Measuring the angle θ at the k-th minimum and applying d sinθ = kλ gives the wavelength.",
+        "d": "Total intensity is a photometric quantity and is not used in this formula."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "4. If the distance between the slit and the screen (D) is doubled in a single-slit diffraction experiment (keeping d and λ constant), the physical fringe width on the screen will:",
+      "answers": {
+        "a": "Become half",
+        "b": "Become double",
+        "c": "Become four times",
+        "d": "Remain unchanged"
+      },
+      "explanations": {
+        "a": "Fringe width increases with D, so halving D would give half the fringe width — not doubling.",
+        "b": "Correct. Fringe width β = λD/d; doubling D doubles β.",
+        "c": "Fringe width would be four times only if D were squared in the formula, which it is not.",
+        "d": "Angular positions are fixed, but physical distances on the screen depend on D."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "5. He–Ne laser light is used in diffraction experiments mainly because:",
+      "answers": {
+        "a": "It generates a large amount of heat",
+        "b": "It produces monochromatic and coherent light",
+        "c": "It changes colour during propagation",
+        "d": "It produces a highly divergent beam"
+      },
+      "explanations": {
+        "a": "Heat is not a useful property for diffraction experiments.",
+        "b": "Correct. The coherence and monochromaticity of He–Ne laser light produce sharp, well-defined diffraction minima.",
+        "c": "A laser does not change its colour during propagation.",
+        "d": "Lasers are highly collimated (low divergence), which is another reason they are preferred."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "6. In a single-slit diffraction experiment, d = 0.1 mm and the first-order minimum is observed at θ = 0.363°. What is the wavelength of the laser?",
+      "answers": {
+        "a": "400 nm",
+        "b": "532 nm",
+        "c": "633 nm",
+        "d": "780 nm"
+      },
+      "explanations": {
+        "a": "λ = d sinθ = 0.1×10⁻³ × sin(0.363°) ≈ 0.1×10⁻³ × 0.00633 ≈ 633 nm, not 400 nm.",
+        "b": "λ = 532 nm would require a different slit width or angle.",
+        "c": "Correct. λ = d sinθ = 0.1×10⁻³ × sin(0.363°) ≈ 6.33×10⁻⁷ m = 633 nm ≈ 632.8 nm (He–Ne laser).",
+        "d": "780 nm is near-infrared; the He–Ne laser emits in the red visible range."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "7. In the intensity formula for single-slit diffraction I = I₀(sinα/α)², what is the intensity at the centre of the central maximum (θ = 0)?",
+      "answers": {
+        "a": "0",
+        "b": "I₀/2",
+        "c": "I₀/π",
+        "d": "I₀"
+      },
+      "explanations": {
+        "a": "Zero intensity would mean a dark centre, which contradicts observation.",
+        "b": "The intensity at centre is not halved.",
+        "c": "This value would apply at a specific off-axis point, not at the centre.",
+        "d": "Correct. At θ = 0, α → 0 and sinα/α → 1, so I = I₀(1)² = I₀, the maximum intensity."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "8. Which of the following correctly describes the secondary maxima in a single-slit diffraction pattern?",
+      "answers": {
+        "a": "They are brighter than the central maximum",
+        "b": "They all have equal intensity",
+        "c": "Their intensity decreases with increasing order",
+        "d": "Their width is twice the width of the central maximum"
+      },
+      "explanations": {
+        "a": "The central maximum is always the brightest region.",
+        "b": "Secondary maxima have decreasing intensity as the order increases.",
+        "c": "Correct. The intensity of successive secondary maxima decreases because the effective slit area contributing constructively reduces with each higher order.",
+        "d": "Secondary maxima are half the width of the central maximum, not double."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "9. In a single-slit diffraction experiment, which combination produces the sharpest (narrowest) central maximum?",
+      "answers": {
+        "a": "Wide slit and short wavelength",
+        "b": "Narrow slit and long wavelength",
+        "c": "Narrow slit and short wavelength",
+        "d": "Wide slit and long wavelength"
+      },
+      "explanations": {
+        "a": "Correct. Angular half-width = λ/d; to minimise it, use the smallest λ and the largest d (widest slit).",
+        "b": "Narrow slit and long wavelength both increase the angular width — giving the broadest central maximum.",
+        "c": "A narrow slit increases diffraction spreading; although short λ helps, the narrow slit effect dominates.",
+        "d": "Long wavelength increases spreading even though a wide slit reduces it."
+      },
+      "correctAnswer": "a",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "10. If the slit width in a single-slit diffraction experiment is made equal to the wavelength of light (d = λ), the first-order minimum will appear at:",
+      "answers": {
+        "a": "θ = 30°",
+        "b": "θ = 45°",
+        "c": "θ = 90°",
+        "d": "No minimum will be observed on the screen"
+      },
+      "explanations": {
+        "a": "sinθ = λ/d = 1 gives θ = 90°, not 30°.",
+        "b": "sin45° ≈ 0.707 ≠ 1, so this is not the correct angle.",
+        "c": "Correct. From d sinθ = kλ with k = 1 and d = λ: sinθ = 1, so θ = 90°. The minimum falls at the edge of the screen — in practice, the entire screen shows only the central maximum.",
+        "d": "A minimum exists at θ = 90°, though it cannot be observed on a flat screen in front of the slit."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    }
+  ]
+}
