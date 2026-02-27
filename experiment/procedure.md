@@ -8,7 +8,7 @@
 **Step 4:** Repeat the process 5 times for different angles of observation. Take the average of the values of &lambda;.
 
 <figure style="text-align:center;">
-  <img src="images/procedure_fig2.png" alt="Diffraction Pattern of Single-Slit" style="max-width:600px;" />
+  <img src="images/procedure_fig2.png" alt="Diffraction Pattern of Single-Slit" style="width:100%;" />
   <figcaption style="text-align:center;"><strong>Fig. 3:</strong> Diffraction Pattern of Single-Slit</figcaption>
 </figure>
 
