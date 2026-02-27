@@ -57,6 +57,6 @@ Since the magnitude of intensity at any point in the focal plane of the lens is 
 Fraunhofer diffraction is shown in Fig. 2, which explains how light waves spread and form patterns (bright/dark fringes) when passing through a slit under conditions where the source and screen are effectively at infinite distances.
 
 <figure style="text-align:center;">
-  <img src="images/theory_fig2.png" alt="Fraunhofer single-slit diffraction intensity pattern" style="max-width:600px;" />
+  <img src="images/theory_fig2.png" alt="Fraunhofer single-slit diffraction intensity pattern" style="max-width:1300px;" />
   <figcaption style="text-align:center;"><strong>Fig. 2:</strong> Fraunhofer single-slit diffraction pattern showing intensity distribution</figcaption>
 </figure>
