@@ -1,5 +1,5 @@
 **Step 1:** Set the width of the slit. Keep this value constant throughout the experiment.
-<br><b>Given:</b> Slit width <i>d</i> = 0.1 mm = 1 &times; 10<sup>&minus;4</sup> m
+<br><b>Given:</b> Slit width <i>d</i> = 1000 nm = 1 &times; 10<sup>&minus;6</sup> m
 
 **Step 2:** Click on "Diffraction Pattern" or "Intensity Profile" option to observe the diffraction pattern as shown in Fig. 3.
 
@@ -30,28 +30,28 @@ Where:
 
 **Observation Table:**
 
-<i>Given: d = 0.1 mm = 1 &times; 10<sup>&minus;4</sup> m, &nbsp; k = 1</i>
+<i>Given: d = 1000 nm = 1 &times; 10<sup>&minus;6</sup> m, &nbsp; k = 1</i>
 
 | Serial No. | Angle of Observation (&theta;) | sin&theta; | Wavelength &lambda; = d &times; sin&theta; / k |
 |:----------:|:------------------------------:|:----------:|:----------------------------------------------:|
-| 1 | 0.360° | 0.006283 | 628.3 nm |
-| 2 | 0.363° | 0.006336 | 633.6 nm |
-| 3 | 0.362° | 0.006318 | 631.8 nm |
-| 4 | 0.365° | 0.006371 | 637.1 nm |
-| 5 | 0.361° | 0.006301 | 630.1 nm |
+| 1 | 39.20° | 0.6320 | 632.0 nm |
+| 2 | 39.30° | 0.6334 | 633.4 nm |
+| 3 | 39.31° | 0.6336 | 633.6 nm |
+| 4 | 39.25° | 0.6327 | 632.7 nm |
+| 5 | 39.29° | 0.6333 | 633.3 nm |
 
 **Average Wavelength:**
 
 <p style="margin-left:2em;">
-  &lambda;<sub>avg</sub> = (628.3 + 633.6 + 631.8 + 637.1 + 630.1) / 5
+  &lambda;<sub>avg</sub> = (632.0 + 633.4 + 633.6 + 632.7 + 633.3) / 5
   <br>
-  &lambda;<sub>avg</sub> = 3160.9 / 5
+  &lambda;<sub>avg</sub> = 3165.0 / 5
   <br>
-  <b>&lambda;<sub>avg</sub> = 632.2 nm</b>
+  <b>&lambda;<sub>avg</sub> = 633.0 nm</b>
 </p>
 
 <b>Standard value of He&ndash;Ne laser wavelength = 632.8 nm</b><br>
-<b>Percentage Error = |(632.8 &minus; 632.2) / 632.8| &times; 100 &asymp; 0.09%</b>
+<b>Percentage Error = |(632.8 &minus; 633.0) / 632.8| &times; 100 &asymp; 0.03%</b>
 
 
 
