@@ -11,8 +11,8 @@
    https://physics.iitd.ac.in/uploads/manual_UUEuAhJSeu.pdf  
    (Procedure includes intensity scan up to second minima and plotting of the \( \text{sinc}^2 \) diffraction pattern.)
 
-4. Ghatak, A. (2025). *Optics* (8th ed.). McGraw Hill Education India.  
-   ISBN: 9789355328595. Published: August 28, 2024.
+4. Ghatak, A. (2024). *Optics* (8th ed.). McGraw Hill Education India.</br>
+   (Chapter 17: Fraunhofer Diffraction using Single-Slit and Circular Aperture)
 
 ---
 
